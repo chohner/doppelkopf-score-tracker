@@ -52,18 +52,4 @@ class TableHeader extends Component {
   }
 }
 
-// const TableHeader = props => {
-//     return (
-        // <Table.Header>
-        //   <Table.Row>
-        //     <Table.HeaderCell>{props.players[0].name} </Table.HeaderCell>
-        //     <Table.HeaderCell>{props.players[1].name} </Table.HeaderCell>
-        //     <Table.HeaderCell>{props.players[2].name}</Table.HeaderCell>
-        //     <Table.HeaderCell>{props.players[3].name}</Table.HeaderCell>
-        //     <Table.HeaderCell>{"Game"}</Table.HeaderCell>
-        //   </Table.Row>
-        // </Table.Header>
-//     );
-// }
- 
 export default TableHeader;

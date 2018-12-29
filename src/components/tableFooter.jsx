@@ -94,9 +94,9 @@ class TableFooter extends Component {
           placeholder='Points'/>
         </Table.HeaderCell>
       </Table.Row>
-      </Table.Footer>
-      );
-    }
+    </Table.Footer>
+    );
   }
-  
-  export default TableFooter;
+}
+
+export default TableFooter;

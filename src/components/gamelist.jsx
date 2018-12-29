@@ -3,13 +3,6 @@ import Game from './game';
 import { Table } from 'semantic-ui-react'
 
 class GameList extends Component {
-  // https://stackoverflow.com/a/49866237
-  cumulativeSum = ([head, ...tail]) =>
-  tail.reduce((acc, x, index) => {
-    acc.push(acc[index] + x);
-    return acc
-  }, [head])
-  
   gameToResultPoints(game) {
     const soloGameWon = game.winner.length === 1;
     const soloGameLost = game.winner.length === 3;
@@ -32,7 +25,7 @@ class GameList extends Component {
     });
     return ResultPoints;
   }
-  
+
   gameListToPointList(gameList) {
     const pointList = [];
     gameList.forEach((game, gameIDX) => {
@@ -48,10 +41,10 @@ class GameList extends Component {
     });
     return pointList;
   }
-  
+
   render() {
     const PointList = this.gameListToPointList(this.props.games);
-    
+
     return (
       <Table.Body>
         {PointList.map((game, gameIDX) => (
