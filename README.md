@@ -3,9 +3,10 @@ Doppelkopf (doko) butler helps you keep track of your running doppelkopf score.
 Simply enter the game score and the winner. Allows solos and changing player names.
 
 Plans for the future:
-- Persitant state (Progressive Web App?)
+- Ability to edit games
 - Allow more than 4 players
 - Color table cells according to score
+- Progressive Web App
 - Generate score plot over games
 
 This is mainly a small learning project to pick up react.

@@ -5,46 +5,27 @@ import GameList from './components/gamelist';
 import TableHeader from './components/tableHeader';
 import TableFooter from './components/tableFooter';
 import { Table } from 'semantic-ui-react'
+import ls from 'local-storage'
+
+const emptyState = {
+  players: [
+    {id:0, name:"Player 1"},
+    {id:1, name:"Player 2"},
+    {id:2, name:"Player 3"},
+    {id:3, name:"Player 4"}
+  ],
+  games: [],
+}
 
 class App extends Component {
   state = {
-    players: [
-      {id:0, name:"Player 1"},
-      {id:1, name:"Player 2"},
-      {id:2, name:"Player 3"},
-      {id:3, name:"Player 4"}
-    ],
-    games: [
-      {
-        gameID: 0,
-        winner: [1, 2],
-        points: 2,
-      },
-      {
-        gameID: 1,
-        winner: [0, 2],
-        points: 1,
-      },
-      {
-        gameID: 2,
-        winner: [1, 0],
-        points: 5,
-      },
-      {
-        gameID: 3,
-        winner: [1, 0],
-        points: 5,
-      },
-      {
-        gameID: 4,
-        winner: [1, 0],
-        points: 5,
-      }
-    ],
+    players: ls.get('players') || emptyState.players,
+    games: ls.get('games') || emptyState.games,
   }
 
   handlePlayerChange = (newPlayers) => {
     this.setState({players:newPlayers})
+    ls.set('players', newPlayers);
   }
   
   handleGameAdded = (newGame) => {
@@ -56,12 +37,19 @@ class App extends Component {
     })
 
     this.setState({games:games})
+    ls.set('games', games);
+  }
+
+  handleReset = () => {
+    this.setState(emptyState);
+    ls.set('players', emptyState.players);
+    ls.set('games', emptyState.games);
   }
 
   render() {
     return (
       <React.Fragment>
-      <NavBar/>
+      <NavBar onReset={this.handleReset}/>
       <Table selectable unstackable columns={5} striped textAlign='center' style={{borderCollapse: "collapse"}}>
         <TableHeader players={this.state.players} onChange={this.handlePlayerChange}/>
         <GameList games={this.state.games}/>
