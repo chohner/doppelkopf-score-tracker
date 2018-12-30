@@ -3,7 +3,7 @@ import { Table, Checkbox, Input, Button } from 'semantic-ui-react'
 
 const newState = {
   winner: [false, false, false, false],
-  points: 0
+  points: ''
 };
 
 class TableFooter extends Component {
