@@ -31,6 +31,7 @@ class TableFooter extends Component {
       console.warn("Can't have more than 3 winners.");
     } else {
       this.props.onSubmit({
+        idx: this.props.newGame.idx,
         winner: winnerList,
         points: points
       });

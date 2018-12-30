@@ -17,6 +17,7 @@ function emptyState() {
     ],
     games: [],
     newGame: {
+      idx:0,
       winner: [false, false, false, false],
       points: ''
     }
@@ -38,12 +39,19 @@ class App extends Component {
   
   handleGameAdded = (newGame) => {
     const games  = [...this.state.games];
-    games.push({
-      gameID: this.state.games.length,
-      winner: newGame.winner,
-      points: newGame.points
-    })
-
+    if (newGame.idx > this.state.games.length - 1) {
+      games.push({
+        gameID: this.state.games.length,
+        winner: newGame.winner,
+        points: newGame.points
+      })
+    } else {
+      games[newGame.idx] = {
+        gameID: newGame.idx,
+        winner: newGame.winner,
+        points: newGame.points
+      }
+    }
     this.setState({games:games})
     ls.set('games', games);
 
@@ -77,7 +85,18 @@ class App extends Component {
   }
 
   handleGameChange = (gameid) => {
-    // console.log("gamechange:", gameid)
+    const game = this.state.games[gameid];
+    const newGame = {
+      idx: gameid,
+      winner: [false, false, false, false],
+      points: game.points
+    }
+
+    game.winner.forEach(winnerIDX => {
+      newGame.winner[winnerIDX] = true
+    });
+
+    this.setState({newGame:newGame});
   }
 
   render() {
