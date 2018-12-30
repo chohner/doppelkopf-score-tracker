@@ -31,17 +31,17 @@ class GameList extends Component {
 
   gameListToPointList(gameList) {
     const pointList = [];
-    gameList.forEach((game, gameIDX) => {
+    gameList.forEach((game, idx) => {
       const ResultPoints = this.gameToResultPoints(game);
       pointList.push({
-        gameID: game.gameID,
+        gameid: game.gameid,
         points: game.points,
         soloWon: ResultPoints.soloWon,
         soloLost: ResultPoints.soloLost,
-        0: gameIDX === 0 ? ResultPoints[0] : ResultPoints[0] + pointList[pointList.length-1][0],
-        1: gameIDX === 0 ? ResultPoints[1] : ResultPoints[1] + pointList[pointList.length-1][1],
-        2: gameIDX === 0 ? ResultPoints[2] : ResultPoints[2] + pointList[pointList.length-1][2],
-        3: gameIDX === 0 ? ResultPoints[3] : ResultPoints[3] + pointList[pointList.length-1][3],
+        0: idx === 0 ? ResultPoints[0] : ResultPoints[0] + pointList[pointList.length-1][0],
+        1: idx === 0 ? ResultPoints[1] : ResultPoints[1] + pointList[pointList.length-1][1],
+        2: idx === 0 ? ResultPoints[2] : ResultPoints[2] + pointList[pointList.length-1][2],
+        3: idx === 0 ? ResultPoints[3] : ResultPoints[3] + pointList[pointList.length-1][3],
       })
     });
     return pointList;
@@ -52,11 +52,9 @@ class GameList extends Component {
 
     return (
       <Table.Body>
-        {PointList.map((game, gameIDX) => (
+        {PointList.map((game, idx) => (
           <Game
-          key={gameIDX}
-          idx={gameIDX}
-          id={game.gameID}
+          key={idx}
           game={game}
           onChange={this.props.onChange}
           />
