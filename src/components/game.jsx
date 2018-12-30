@@ -6,25 +6,25 @@ class Game extends Component {
     this.props.onChange(gameid);
   }
 
-  render() { 
+  render() {
+    const { gamePoints } = this.props;
+    const pointString = (gamePoints.soloWon || gamePoints.soloLost) ? `${3 * gamePoints.points} / ${gamePoints.points}` : gamePoints.points;
+    const rowStyle = { borderTop: gamePoints.gameid%4 !== 0 ? undefined : "solid 2px gray"};
     return (
-      <Table.Row style={{ borderTop: this.props.gameid%4 !== 0 ? undefined : "solid 2px gray"}}>
-        <Table.Cell>{this.props.game[0]}</Table.Cell>
-        <Table.Cell>{this.props.game[1]}</Table.Cell>
-        <Table.Cell>{this.props.game[2]}</Table.Cell>
-        <Table.Cell>{this.props.game[3]}</Table.Cell>
-
+      <Table.Row style={rowStyle}>
+        <Table.Cell content={gamePoints[0]}/>
+        <Table.Cell content={gamePoints[1]}/>
+        <Table.Cell content={gamePoints[2]}/>
+        <Table.Cell content={gamePoints[3]}/>
         <Popup
           hideOnScroll
           trigger={
-            <Table.Cell>
-            {(this.props.game.soloWon || this.props.game.soloLost) ? `${3 * this.props.game.points} / ${this.props.game.points}` : this.props.game.points}
-            </Table.Cell>
+            <Table.Cell content={pointString}/>
             }
           content={
             <Icon
               name='edit outline'
-              onClick={() => this.handleItemClick(this.props.game.gameid)}
+              onClick={() => this.handleItemClick(gamePoints.gameid)}
             />
           }
           on='click'
