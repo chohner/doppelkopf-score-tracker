@@ -4,6 +4,7 @@ import NavBar from './components/navbar';
 import GameList from './components/gamelist';
 import TableHeader from './components/tableHeader';
 import TableFooter from './components/tableFooter';
+import PageFooter from './components/pageFooter';
 import { Table } from 'semantic-ui-react'
 import ls from 'local-storage'
 
@@ -108,6 +109,7 @@ class App extends Component {
         <GameList games={this.state.games} onChange={this.handleGameChange}/>
         <TableFooter newGame={this.state.newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded}/>
       </Table>
+      <PageFooter />
       </React.Fragment>
       );
     }
