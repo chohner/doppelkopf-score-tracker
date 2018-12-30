@@ -2,6 +2,8 @@
 Doppelkopf (doko) butler helps you keep track of your running doppelkopf score.
 Simply enter the game score and the winner. Allows solos and changing player names.
 
+It is deployed using gh-pages at https://chohner.github.io/doko-butler/
+
 Plans for the future:
 - Ability to edit games
 - Allow more than 4 players
