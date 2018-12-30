@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/doko-butler/precache-manifest.e44342be428c49cd828a9376b1b4e652.js"
+  "/doko-butler/precache-manifest.27274bae9b62be99fd7aed772cb109f6.js"
 );
 
 workbox.clientsClaim();
