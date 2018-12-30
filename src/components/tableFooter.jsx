@@ -12,10 +12,6 @@ class TableFooter extends Component {
     this.props.onChange({points:data.value});
   }
 
-  resetState = () => {
-    this.props.onReset();
-  }
-
   handlePointSubmit= (_, data) => {
     const points = Number(this.props.newGame.points);
     let nullGame = points === 0;
@@ -38,7 +34,6 @@ class TableFooter extends Component {
         winner: winnerList,
         points: points
       });
-      this.resetState();
     }
   }
 

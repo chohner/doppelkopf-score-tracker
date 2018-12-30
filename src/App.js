@@ -46,6 +46,8 @@ class App extends Component {
 
     this.setState({games:games})
     ls.set('games', games);
+
+    this.resetNewGame(games.length);
   }
 
   handleNewGameChange = (newGame) => {
@@ -59,8 +61,9 @@ class App extends Component {
     ls.set('newGame', newGameState);
   }
 
-  resetNewGame = () => {
+  resetNewGame = (newIDX) => {
     const emptyState = this.emptyState();
+    emptyState.newGame.idx = newIDX;
     this.setState({newGame:emptyState.newGame})
     ls.set('newGame', emptyState.newGame);
   }
@@ -84,7 +87,7 @@ class App extends Component {
       <Table selectable unstackable columns={5} striped textAlign='center' style={{borderCollapse: "collapse"}}>
         <TableHeader players={this.state.players} onChange={this.handlePlayerChange}/>
         <GameList games={this.state.games} onChange={this.handleGameChange}/>
-        <TableFooter newGame={this.state.newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded} onReset={this.resetNewGame}/>
+        <TableFooter newGame={this.state.newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded}/>
       </Table>
       </React.Fragment>
       );
