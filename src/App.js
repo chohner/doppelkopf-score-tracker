@@ -103,7 +103,7 @@ class App extends Component {
     return (
       <React.Fragment>
       <NavBar onReset={this.handleReset}/>
-      <Table selectable unstackable columns={5} striped textAlign='center' size='small' style={{borderCollapse: "collapse"}}>
+      <Table fixed selectable unstackable columns={5} striped textAlign='center' size='small' style={{borderCollapse: "collapse"}}>
         <TableHeader players={this.state.players} onChange={this.handlePlayerChange}/>
         <GameList games={this.state.games} onChange={this.handleGameChange}/>
         <TableFooter newGame={this.state.newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded}/>
