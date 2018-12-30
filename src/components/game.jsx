@@ -8,14 +8,15 @@ class Game extends Component {
 
   render() {
     const { gamePoints } = this.props;
-    const pointString = (gamePoints.soloWon || gamePoints.soloLost) ? `${3 * gamePoints.points} / ${gamePoints.points}` : gamePoints.points;
+    const soloPlayed = gamePoints.soloWon || gamePoints.soloLost;
+    const pointString = soloPlayed ? `${3 * gamePoints.points} / ${gamePoints.points}` : gamePoints.points;
     const rowStyle = { borderTop: gamePoints.gameid%4 !== 0 ? undefined : "solid 2px gray"};
     return (
       <Table.Row style={rowStyle}>
-        <Table.Cell content={gamePoints[0]}/>
-        <Table.Cell content={gamePoints[1]}/>
-        <Table.Cell content={gamePoints[2]}/>
-        <Table.Cell content={gamePoints[3]}/>
+        {
+          gamePoints.cumulativeScore.map((game, idx) => (
+          <Table.Cell content={game.score} key={idx} selectable positive={game.winner} negative={!game.winner}/>
+        ))}
         <Popup
           hideOnScroll
           trigger={

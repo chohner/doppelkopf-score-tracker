@@ -5,8 +5,8 @@ Simply enter the game score and the winner. Allows solos and changing player nam
 It is deployed using gh-pages at https://chohner.github.io/doko-butler/
 
 Plans for the future:
+- Track stats
 - Allow more than 4 players
-- Color table cells according to score
 - Progressive Web App
 - Generate score plot over games
 
