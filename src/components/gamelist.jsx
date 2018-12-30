@@ -57,7 +57,9 @@ class GameList extends Component {
           key={gameIDX}
           idx={gameIDX}
           id={game.gameID}
-          game={game}/>
+          game={game}
+          onChange={this.props.onChange}
+          />
         ))}
       </Table.Body>
     )
