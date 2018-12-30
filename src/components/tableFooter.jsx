@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Table, Checkbox, Input, Button } from 'semantic-ui-react'
 
 class TableFooter extends Component {
+  handleFocus = (event) => {
+    const el = event.currentTarget;
+      setTimeout(() => {
+          el.select();
+      }, 0);
+  }
+
   handleWinnerInput = (_, data) => {
     const winner = [...this.props.newGame.winner];
     winner[data.playerid] = data.checked;
@@ -70,11 +77,13 @@ class TableFooter extends Component {
         </Table.HeaderCell>
         <Table.HeaderCell>
         <Input fluid
-          size='small'
+          size='mini'
           type='number'
+          pattern="\d*"
           max={50}
           min={0}
-          action={ <Button color='teal' icon='add' onClick={ this.handlePointSubmit } />} 
+          action={ <Button compact color='teal' icon='add' size='mini' onClick={ this.handlePointSubmit } />} 
+          onFocus={this.handleFocus}
           onChange={this.handlePointInput}
           value={this.props.newGame.points}
           placeholder='Points'/>
