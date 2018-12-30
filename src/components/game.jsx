@@ -8,7 +8,9 @@ const Game = props => {
         <Table.Cell>{props.game[1]}</Table.Cell>
         <Table.Cell>{props.game[2]}</Table.Cell>
         <Table.Cell>{props.game[3]}</Table.Cell>
-        <Table.Cell>{props.game.points}</Table.Cell>
+        <Table.Cell>{
+          (props.game.soloWon || props.game.soloLost) ? `${3 * props.game.points} / ${props.game.points}` : props.game.points
+        }</Table.Cell>
       </Table.Row>
   );
 }
