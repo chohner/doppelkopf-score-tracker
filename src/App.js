@@ -105,17 +105,16 @@ class App extends Component {
 
     return (
       <React.Fragment>
-      <NavBar onReset={this.handleReset}/>
-      <Table fixed selectable unstackable columns={5} striped textAlign='center' size='small' style={{borderCollapse: "collapse"}}>
-        <TableHeader players={players} onChange={this.handlePlayerChange}/>
-        <GameList games={games} onChange={this.handleGameChange}/>
-        <TableFooter newGame={newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded}/>
-      </Table>
-      <PageFooter />
+        <NavBar onReset={this.handleReset}/>
+        <Table fixed selectable unstackable columns={5} striped textAlign='center' size='small' style={{borderCollapse: "collapse"}}>
+          <TableHeader players={players} onChange={this.handlePlayerChange}/>
+          <GameList games={games} onChange={this.handleGameChange}/>
+          <TableFooter newGame={newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded}/>
+        </Table>
+        <PageFooter />
       </React.Fragment>
-      );
-    }
+    );
   }
-  
-  export default App;
-  
+}
+
+export default App;

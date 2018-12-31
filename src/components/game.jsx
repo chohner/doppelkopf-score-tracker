@@ -15,13 +15,14 @@ class Game extends Component {
       <Table.Row style={rowStyle}>
         {
           gamePoints.cumulativeScore.map((game, idx) => (
-          <Table.Cell content={game.score} key={idx} selectable positive={game.winner} negative={!game.winner}/>
-        ))}
+            <Table.Cell content={game.score} key={idx} selectable positive={game.winner} negative={!game.winner}/>
+          ))
+        }
         <Popup
           hideOnScroll
           trigger={
             <Table.Cell content={pointString}/>
-            }
+          }
           content={
             <Icon
               name='edit outline'

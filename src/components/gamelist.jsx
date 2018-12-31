@@ -56,9 +56,9 @@ class GameList extends Component {
       <Table.Body>
         {PointList.map((gamePoints, idx) => (
           <Game
-          key={idx}
-          gamePoints={gamePoints}
-          onChange={this.props.onChange}
+            key={idx}
+            gamePoints={gamePoints}
+            onChange={this.props.onChange}
           />
         ))}
       </Table.Body>

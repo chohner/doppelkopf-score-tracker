@@ -4,9 +4,9 @@ import { Table, Checkbox, Input, Button } from 'semantic-ui-react'
 class TableFooter extends Component {
   handleFocus = (event) => {
     const el = event.currentTarget;
-      setTimeout(() => {
-          el.select();
-      }, 0);
+    setTimeout(() => {
+      el.select();
+    }, 0);
   }
 
   handleWinnerInput = (_, data) => {
@@ -48,48 +48,45 @@ class TableFooter extends Component {
   render() { 
     return (
       <Table.Footer fullWidth>
-      <Table.Row>
-        <Table.HeaderCell>
-          <Checkbox
-            playerid="0"
-            checked={this.props.newGame.winner[0]}
-            onChange={this.handleWinnerInput}
-          />
-        </Table.HeaderCell>
-        <Table.HeaderCell>
-        <Checkbox
-            playerid="1"
-            checked={this.props.newGame.winner[1]}
-            onChange={this.handleWinnerInput}
-          />
-        </Table.HeaderCell>
-        <Table.HeaderCell><Checkbox
-            playerid="2"
-            checked={this.props.newGame.winner[2]}
-            onChange={this.handleWinnerInput}
-          />
-        </Table.HeaderCell>
-        <Table.HeaderCell><Checkbox
+        <Table.Row>
+          <Table.HeaderCell>
+            <Checkbox
+              playerid="0"
+              checked={this.props.newGame.winner[0]}
+              onChange={this.handleWinnerInput}/>
+          </Table.HeaderCell>
+          <Table.HeaderCell>
+            <Checkbox
+              playerid="1"
+              checked={this.props.newGame.winner[1]}
+              onChange={this.handleWinnerInput}/>
+          </Table.HeaderCell>
+          <Table.HeaderCell>
+            <Checkbox
+              playerid="2"
+              checked={this.props.newGame.winner[2]}
+              onChange={this.handleWinnerInput}/>
+          </Table.HeaderCell>
+          <Table.HeaderCell><Checkbox
             playerid="3"
             checked={this.props.newGame.winner[3]}
-            onChange={this.handleWinnerInput}
-          />
-        </Table.HeaderCell>
-        <Table.HeaderCell>
-        <Input fluid
-          size='mini'
-          type='number'
-          pattern="\d*"
-          max={50}
-          min={0}
-          action={ <Button compact color='teal' icon='add' size='mini' onClick={ this.handlePointSubmit } />} 
-          onFocus={this.handleFocus}
-          onChange={this.handlePointInput}
-          value={this.props.newGame.points}
-          placeholder='Points'/>
-        </Table.HeaderCell>
-      </Table.Row>
-    </Table.Footer>
+            onChange={this.handleWinnerInput}/>
+          </Table.HeaderCell>
+          <Table.HeaderCell>
+            <Input fluid
+              size='mini'
+              type='number'
+              pattern="\d*"
+              max={50}
+              min={0}
+              action={ <Button compact color='teal' icon='add' size='mini' onClick={ this.handlePointSubmit } />} 
+              onFocus={this.handleFocus}
+              onChange={this.handlePointInput}
+              value={this.props.newGame.points}
+              placeholder='Points'/>
+          </Table.HeaderCell>
+        </Table.Row>
+      </Table.Footer>
     );
   }
 }
