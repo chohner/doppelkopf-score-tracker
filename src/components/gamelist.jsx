@@ -33,7 +33,7 @@ class GameList extends Component {
       const cumulativeScore = playerPoints.map((_, playeridx) => {
         let cumPoints = playerPoints[playeridx];
         if (gameidx !== 0) {
-          cumPoints.points += pointList[gameidx-1].cumulativeScore[playeridx].points
+          cumPoints.score += pointList[gameidx-1].cumulativeScore[playeridx].score
         }
         return cumPoints
       });
