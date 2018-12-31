@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "e8c322de9658cbeb8a774b6624167c2c",
-    "url": "/doko-butler/static/media/brand-icons.e8c322de.woff2"
+    "revision": "faff92145777a3cbaf8e7367b4807987",
+    "url": "/doko-butler/static/media/icons.faff9214.woff"
   },
   {
-    "revision": "b483353d7a3c1a9a164c",
-    "url": "/doko-butler/static/css/main.355553b5.chunk.css"
+    "revision": "7a0e2a9d1b3e5670b781",
+    "url": "/doko-butler/static/css/main.528b5f13.chunk.css"
   },
   {
     "revision": "a1a749e89f578a49306ec2b055c073da",
     "url": "/doko-butler/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "f956a4c19a74a6c45ca0",
-    "url": "/doko-butler/static/js/1.f956a4c1.chunk.js"
+    "revision": "be43a1e465a60f4e6388",
+    "url": "/doko-butler/static/js/1.be43a1e4.chunk.js"
   },
   {
     "revision": "fa9da6405066325bb6aa",
@@ -24,32 +24,32 @@ self.__precacheManifest = [
     "url": "/doko-butler/static/media/logo.62486c72.svg"
   },
   {
-    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
-    "url": "/doko-butler/static/media/outline-icons.ef60a4f6.woff"
-  },
-  {
     "revision": "cd6c777f1945164224dee082abaea03a",
     "url": "/doko-butler/static/media/outline-icons.cd6c777f.woff2"
   },
   {
-    "revision": "ad97afd3337e8cda302d10ff5a4026b8",
-    "url": "/doko-butler/static/media/outline-icons.ad97afd3.ttf"
+    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
+    "url": "/doko-butler/static/media/outline-icons.ef60a4f6.woff"
   },
   {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
     "url": "/doko-butler/static/media/outline-icons.701ae6ab.eot"
   },
   {
+    "revision": "ad97afd3337e8cda302d10ff5a4026b8",
+    "url": "/doko-butler/static/media/outline-icons.ad97afd3.ttf"
+  },
+  {
     "revision": "0ab54153eeeca0ce03978cc463b257f7",
     "url": "/doko-butler/static/media/icons.0ab54153.woff2"
   },
   {
-    "revision": "b483353d7a3c1a9a164c",
-    "url": "/doko-butler/static/js/main.b483353d.chunk.js"
+    "revision": "7a0e2a9d1b3e5670b781",
+    "url": "/doko-butler/static/js/main.7a0e2a9d.chunk.js"
   },
   {
-    "revision": "faff92145777a3cbaf8e7367b4807987",
-    "url": "/doko-butler/static/media/icons.faff9214.woff"
+    "revision": "e8c322de9658cbeb8a774b6624167c2c",
+    "url": "/doko-butler/static/media/brand-icons.e8c322de.woff2"
   },
   {
     "revision": "a046592bac8f2fd96e994733faf3858c",
@@ -64,12 +64,12 @@ self.__precacheManifest = [
     "url": "/doko-butler/static/media/icons.8e3c7f55.eot"
   },
   {
-    "revision": "13db00b7a34fee4d819ab7f9838cc428",
-    "url": "/doko-butler/static/media/brand-icons.13db00b7.eot"
-  },
-  {
     "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
     "url": "/doko-butler/static/media/icons.b87b9ba5.ttf"
+  },
+  {
+    "revision": "13db00b7a34fee4d819ab7f9838cc428",
+    "url": "/doko-butler/static/media/brand-icons.13db00b7.eot"
   },
   {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
@@ -84,11 +84,11 @@ self.__precacheManifest = [
     "url": "/doko-butler/static/media/icons.962a1bf3.svg"
   },
   {
-    "revision": "f956a4c19a74a6c45ca0",
-    "url": "/doko-butler/static/css/1.550a635e.chunk.css"
+    "revision": "be43a1e465a60f4e6388",
+    "url": "/doko-butler/static/css/1.41f8e177.chunk.css"
   },
   {
-    "revision": "413065b1401a16c7c3a3547733b9be98",
+    "revision": "2c40fc4ea1668a761d1e4f3d769c859d",
     "url": "/doko-butler/index.html"
   }
 ];
