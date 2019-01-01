@@ -17,34 +17,15 @@ class TableHeader extends Component {
     return ( 
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>
-            <Form>
-              <Input transparent type="text" placeholder="Player 1" id={0} value={this.props.players[0].name} onChange={this.handleChange}>
-                <input style={nameStyle} />
-              </Input>
-            </Form>
-          </Table.HeaderCell>
-          <Table.HeaderCell>
-            <Form>
-              <Input transparent type="text" placeholder="Player 2" id={1} value={this.props.players[1].name} onChange={this.handleChange}>
-                <input style={nameStyle} />
-              </Input>
-            </Form>
-          </Table.HeaderCell>
-          <Table.HeaderCell>
-            <Form>
-              <Input transparent type="text" placeholder="Player 3" id={2} value={this.props.players[2].name} onChange={this.handleChange}>
-                <input style={nameStyle} />
-              </Input>
-            </Form>
-          </Table.HeaderCell>
-          <Table.HeaderCell>
-            <Form>
-              <Input transparent type="text" placeholder="Player 4" id={3} value={this.props.players[3].name} onChange={this.handleChange}>
-                <input style={nameStyle} />
-              </Input>
-            </Form>
-          </Table.HeaderCell>
+          {this.props.players.map((player, idx) => (
+            <Table.HeaderCell key={idx}>
+              <Form>
+                <Input transparent type="text" placeholder={`Player ${player.id}`} id={player.id} value={player.name} onChange={this.handleChange}>
+                  <input style={nameStyle} />
+                </Input>
+              </Form>
+            </Table.HeaderCell>
+          ))}
           <Table.HeaderCell>{"Game"}</Table.HeaderCell>
         </Table.Row>
       </Table.Header>

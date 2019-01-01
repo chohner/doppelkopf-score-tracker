@@ -3,65 +3,45 @@ import Game from './game';
 import { Table } from 'semantic-ui-react'
 
 class GameList extends Component {
-  gameToResultPoints(game) {
-    const soloWon = game.winner.length === 1;
-    const soloLost = game.winner.length === 3;
-
-    const playerPoints = [{}, {}, {}, {}];
-    playerPoints.forEach((_, idx) => {
-      if (game.winner.includes(idx)) {
-        playerPoints[idx].score = soloWon ? 3 * game.points : game.points;
-        playerPoints[idx].winner = true;
-      } else {
-        playerPoints[idx].score = soloLost ? -3 * game.points : -game.points;
-        playerPoints[idx].winner = false;
-      }
-    });
-
+  emptyGame(playerCount) {
     return {
-      playerPoints,
-      soloWon,
-      soloLost,
-    };
+      gameid: 0,
+      points: Array(playerCount).fill(0),
+      winners: Array(playerCount).fill(false),
+      soloWon: false,
+      soloLost: false
+    }
   }
 
-  gameListToPointList(gameList) {
-    const pointList = [];
-    gameList.forEach((game, gameidx) => {
-      const {playerPoints, soloWon, soloLost} = this.gameToResultPoints(game);
-
-      const cumulativeScore = playerPoints.map((_, playeridx) => {
-        let cumPoints = playerPoints[playeridx];
-        if (gameidx !== 0) {
-          cumPoints.score += pointList[gameidx-1].cumulativeScore[playeridx].score
-        }
-        return cumPoints
-      });
-
-      pointList.push({
-        gameid: game.gameid,
-        points: game.points,
-        soloWon,
-        soloLost,
-        cumulativeScore
+  cumsum2d(array_2d) {
+    const cumSum = Array(array_2d.length).fill(Array(array_2d[0].length))
+    cumSum[0] = array_2d[0]
+    array_2d.slice(1).forEach((innerArr, arridx) => {
+      cumSum[arridx+1] =  innerArr.map((val, validx) => {
+        return val + cumSum[arridx][validx];
       })
-    });
-    return pointList;
+    })
+    return cumSum
   }
 
   render() {
-    const PointList = this.gameListToPointList(this.props.games);
+    const { games } = this.props;
+    let gamesRender;
+    if (games.length > 0) {
+      const scores = games.map(game => game.score);
+      const cumulativeScore = this.cumsum2d(scores)
+      gamesRender = games.map((game, idx) => (
+        <Game
+          key={idx}
+          game={game}
+          cumulativeScore={cumulativeScore[idx]}
+          onChange={this.props.onChange}
+        />
+      ))
+    }
 
     return (
-      <Table.Body>
-        {PointList.map((gamePoints, idx) => (
-          <Game
-            key={idx}
-            gamePoints={gamePoints}
-            onChange={this.props.onChange}
-          />
-        ))}
-      </Table.Body>
+      <Table.Body>{gamesRender}</Table.Body>
     )
   }
 }

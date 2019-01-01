@@ -10,9 +10,9 @@ class TableFooter extends Component {
   }
 
   handleWinnerInput = (_, data) => {
-    const winner = [...this.props.newGame.winner];
-    winner[data.playerid] = data.checked;
-    this.props.onChange({winner:winner});
+    const checkboxes = this.props.newGame.checkboxes.slice();
+    checkboxes[data.playerid].checked = data.checked;
+    this.props.onChange({checkboxes:checkboxes});
   }
 
   handlePointInput = (_, data) => {
@@ -20,12 +20,12 @@ class TableFooter extends Component {
   }
 
   handlePointSubmit= (_, data) => {
-    const points = Number(this.props.newGame.points);
-    let nullGame = points === 0;
+    const { points, checkboxes } = this.props.newGame;
+    let nullGame = points === "0";
     let winnerList = [];
 
-    this.props.newGame.winner.forEach((element, idx) => {
-      if (element) {
+    checkboxes.forEach((checkbox, idx) => {
+      if (checkbox.checked) {
         winnerList.push(idx);
       }
     });
@@ -37,41 +37,23 @@ class TableFooter extends Component {
     } else if (winnerList.length > 3) {
       console.warn("Can't have more than 3 winners.");
     } else {
-      this.props.onSubmit({
-        gameid: this.props.newGame.gameid,
-        winner: winnerList,
-        points: points
-      });
+      this.props.onSubmit(this.props.newGame)
     }
   }
 
   render() { 
+    const { newGame } = this.props;
     return (
       <Table.Footer fullWidth>
         <Table.Row>
-          <Table.HeaderCell>
-            <Checkbox
-              playerid="0"
-              checked={this.props.newGame.winner[0]}
-              onChange={this.handleWinnerInput}/>
-          </Table.HeaderCell>
-          <Table.HeaderCell>
-            <Checkbox
-              playerid="1"
-              checked={this.props.newGame.winner[1]}
-              onChange={this.handleWinnerInput}/>
-          </Table.HeaderCell>
-          <Table.HeaderCell>
-            <Checkbox
-              playerid="2"
-              checked={this.props.newGame.winner[2]}
-              onChange={this.handleWinnerInput}/>
-          </Table.HeaderCell>
-          <Table.HeaderCell><Checkbox
-            playerid="3"
-            checked={this.props.newGame.winner[3]}
-            onChange={this.handleWinnerInput}/>
-          </Table.HeaderCell>
+          {newGame.checkboxes.map((checkbox, idx) => (
+            <Table.HeaderCell key={idx}>
+              <Checkbox
+                playerid={idx}
+                checked={checkbox.checked}
+                onChange={this.handleWinnerInput}/>
+            </Table.HeaderCell>
+          ))}
           <Table.HeaderCell>
             <Input fluid
               size='mini'
@@ -82,7 +64,7 @@ class TableFooter extends Component {
               action={ <Button compact color='teal' icon='add' size='mini' onClick={ this.handlePointSubmit } />} 
               onFocus={this.handleFocus}
               onChange={this.handlePointInput}
-              value={this.props.newGame.points}
+              value={newGame.points}
               placeholder='Points'/>
           </Table.HeaderCell>
         </Table.Row>

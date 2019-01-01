@@ -11,15 +11,20 @@ import ls from 'local-storage'
 function emptyState() {
   return {
     players: [
-      {id:0, name:"Player 1"},
-      {id:1, name:"Player 2"},
-      {id:2, name:"Player 3"},
-      {id:3, name:"Player 4"}
+      {playerid: 0, name: "Player 1", playing: true},
+      {playerid: 1, name: "Player 2", playing: true},
+      {playerid: 2, name: "Player 3", playing: true},
+      {playerid: 3, name: "Player 4", playing: true}
     ],
     games: [],
     newGame: {
       gameid: 0,
-      winner: [false, false, false, false],
+      checkboxes: [
+        {playerid: 0, checked: false},
+        {playerid: 1, checked: false},
+        {playerid: 2, checked: false},
+        {playerid: 3, checked: false},
+      ],
       points: ''
     }
   }
@@ -37,22 +42,37 @@ class App extends Component {
     this.setState({players:newPlayers})
     ls.set('players', newPlayers);
   }
-  
+
+  newGameToGame(newGame) {
+    const points = Number(newGame.points);
+    const winners = newGame.checkboxes.map((checkbox) => {
+      return checkbox.checked
+    })
+    const winnerCount = winners.reduce((n, val) => n + (val === true));
+    const soloWon = winnerCount === 1;
+    const soloLost = winnerCount === 3;
+
+    const score = winners.map(winner => {
+      return winner ? 
+        soloWon ? 3 * points : points
+        : soloLost ? -3 * points : -points
+    })
+
+    return {
+      gameid: newGame.gameid,
+      score,
+      points,
+      winners,
+      soloWon,
+      soloLost
+    };
+  }
+
   handleGameAdded = (newGame) => {
-    const games  = [...this.state.games];
-    if (newGame.gameid > this.state.games.length - 1) {
-      games.push({
-        gameid: this.state.games.length,
-        winner: newGame.winner,
-        points: newGame.points
-      })
-    } else {
-      games[newGame.gameid] = {
-        gameid: newGame.gameid,
-        winner: newGame.winner,
-        points: newGame.points
-      }
-    }
+    const { games } = this.state;
+    const game = this.newGameToGame(newGame);
+    games[game.gameid] = game;
+    
     this.setState({games:games})
     ls.set('games', games);
 
@@ -61,9 +81,10 @@ class App extends Component {
 
   handleNewGameChange = (newGame) => {
     const newGameState = this.state.newGame;
-    if (newGame.winner !== undefined) {
-      newGameState.winner = newGame.winner;
-    } else if (newGame.points !== undefined) {
+    if (newGame.checkboxes !== undefined) {
+      newGameState.checkboxes = newGame.checkboxes;
+    } 
+    if (newGame.points !== undefined) {
       newGameState.points = newGame.points;
     }
     this.setState({newGame:newGameState})
@@ -87,16 +108,12 @@ class App extends Component {
 
   handleGameChange = (idx) => {
     const game = this.state.games[idx];
-    const newGame = {
-      gameid: idx,
-      winner: [false, false, false, false],
-      points: game.points
-    }
-
-    game.winner.forEach(winnerIDX => {
-      newGame.winner[winnerIDX] = true
-    });
-
+    const newGame = this.emptyState().newGame;
+    newGame.checkboxes.map((checkbox, idx) => {
+      return checkbox.checked = game.winners[idx];
+    })
+    newGame.points = game.points;
+    newGame.gameid = game.gameid;
     this.setState({newGame:newGame});
   }
 

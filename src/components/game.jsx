@@ -7,15 +7,15 @@ class Game extends Component {
   }
 
   render() {
-    const { gamePoints } = this.props;
-    const soloPlayed = gamePoints.soloWon || gamePoints.soloLost;
-    const pointString = soloPlayed ? `${3 * gamePoints.points} / ${gamePoints.points}` : gamePoints.points;
-    const rowStyle = { borderTop: gamePoints.gameid%4 !== 0 ? undefined : "solid 2px gray"};
+    const { game, cumulativeScore } = this.props;
+    const soloPlayed = game.soloWon || game.soloLost;
+    const pointString = soloPlayed ? `${3 * game.points} / ${game.points}` : game.points;
+    const rowStyle = { borderTop: game.gameid%4 !== 0 ? undefined : "solid 2px gray"};
     return (
       <Table.Row style={rowStyle}>
         {
-          gamePoints.cumulativeScore.map((game, idx) => (
-            <Table.Cell content={game.score} key={idx} selectable positive={game.winner} negative={!game.winner}/>
+          cumulativeScore.map((gameCumSum, idx) => (
+            <Table.Cell content={gameCumSum} key={idx} selectable positive={game.winners[idx]} negative={!game.winners[idx]}/>
           ))
         }
         <Popup
@@ -26,7 +26,7 @@ class Game extends Component {
           content={
             <Icon
               name='edit outline'
-              onClick={() => this.handleItemClick(gamePoints.gameid)}
+              onClick={() => this.handleItemClick(game.gameid)}
             />
           }
           on='click'
