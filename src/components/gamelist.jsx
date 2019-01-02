@@ -25,7 +25,7 @@ class GameList extends Component {
   }
 
   render() {
-    const { games } = this.props;
+    const { games, playerCount } = this.props;
     let gamesRender;
     if (games.length > 0) {
       const scores = games.map(game => game.score);
@@ -34,6 +34,7 @@ class GameList extends Component {
         <Game
           key={idx}
           game={game}
+          playerCount={playerCount}
           cumulativeScore={cumulativeScore[idx]}
           onChange={this.props.onChange}
         />

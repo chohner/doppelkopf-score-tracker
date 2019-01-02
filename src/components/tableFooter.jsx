@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Checkbox, Input, Button } from 'semantic-ui-react'
+import { Table, Checkbox, Input, Button, Icon } from 'semantic-ui-react'
 
 class TableFooter extends Component {
   handleFocus = (event) => {
@@ -42,31 +42,40 @@ class TableFooter extends Component {
   }
 
   render() { 
-    const { newGame } = this.props;
+    const { newGame, players } = this.props;
+
+    const checkboxElements = newGame.checkboxes.map((checkbox, idx) => (
+      <Table.HeaderCell key={idx} hidden={!players[idx].active}>
+        {players[idx].playing
+          ? <Checkbox
+            playerid={idx}
+            checked={checkbox.checked}
+            disabled={!players[idx].playing}
+            onChange={this.handleWinnerInput}/>
+          : <Icon name='x' />}
+      </Table.HeaderCell>
+    ));
+
+    const pointSubmitElement =
+      <Table.HeaderCell>
+        <Input fluid
+          size='mini'
+          type='number'
+          pattern="\d*"
+          max={50}
+          min={0}
+          action={ <Button compact color='teal' icon='add' size='mini' onClick={ this.handlePointSubmit } />} 
+          onFocus={this.handleFocus}
+          onChange={this.handlePointInput}
+          value={newGame.points}
+          placeholder='Points'/>
+      </Table.HeaderCell>;
+
     return (
       <Table.Footer fullWidth>
         <Table.Row>
-          {newGame.checkboxes.map((checkbox, idx) => (
-            <Table.HeaderCell key={idx}>
-              <Checkbox
-                playerid={idx}
-                checked={checkbox.checked}
-                onChange={this.handleWinnerInput}/>
-            </Table.HeaderCell>
-          ))}
-          <Table.HeaderCell>
-            <Input fluid
-              size='mini'
-              type='number'
-              pattern="\d*"
-              max={50}
-              min={0}
-              action={ <Button compact color='teal' icon='add' size='mini' onClick={ this.handlePointSubmit } />} 
-              onFocus={this.handleFocus}
-              onChange={this.handlePointInput}
-              value={newGame.points}
-              placeholder='Points'/>
-          </Table.HeaderCell>
+          {checkboxElements}
+          {pointSubmitElement}
         </Table.Row>
       </Table.Footer>
     );
