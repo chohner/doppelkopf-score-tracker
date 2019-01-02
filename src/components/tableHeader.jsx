@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Form, Input } from 'semantic-ui-react'
+import { Table, Form, Input } from 'semantic-ui-react';
 
 class TableHeader extends Component {
   handleChange = (event) => {
@@ -8,13 +8,13 @@ class TableHeader extends Component {
     this.props.onChange(players);
   }
 
-  render() { 
+  render() {
     const nameStyle = {
       textAlign: "center",
-      fontWeight: "bold"
+      fontWeight: "bold",
     };
 
-    return ( 
+    return (
       <Table.Header>
         <Table.Row>
           {this.props.players.map((player, idx) => (

@@ -5,8 +5,8 @@ import GameList from './components/gamelist';
 import TableHeader from './components/tableHeader';
 import TableFooter from './components/tableFooter';
 import PageFooter from './components/pageFooter';
-import { Table } from 'semantic-ui-react'
-import ls from 'local-storage'
+import { Table } from 'semantic-ui-react';
+import ls from 'local-storage';
 
 function emptyState() {
   return {
@@ -18,7 +18,7 @@ function emptyState() {
       {playerid: 4, name: "Player 5", playing: false, active:false},
       {playerid: 5, name: "Player 6", playing: false, active:false},
       {playerid: 6, name: "Player 7", playing: false, active:false},
-      {playerid: 7, name: "Player 8", playing: false, active:false}
+      {playerid: 7, name: "Player 8", playing: false, active:false},
     ],
     playerCount: 4,
     games: [],
@@ -34,9 +34,9 @@ function emptyState() {
         {playerid: 6, checked: false},
         {playerid: 7, checked: false},
       ],
-      points: ''
-    }
-  }
+      points: '',
+    },
+  };
 };
 
 class App extends Component {
@@ -49,7 +49,7 @@ class App extends Component {
   emptyState = emptyState;
 
   handlePlayerChange = (newPlayers) => {
-    this.setState({players:newPlayers})
+    this.setState({players:newPlayers});
     ls.set('players', newPlayers);
   }
 
@@ -57,20 +57,20 @@ class App extends Component {
     const { players } = this.state;
     const points = Number(newGame.points);
     const winners = newGame.checkboxes.map((checkbox, idx) => {
-      return players[idx].active && players[idx].playing ? checkbox.checked : null
-    })
+      return players[idx].active && players[idx].playing ? checkbox.checked : null;
+    });
     const winnerCount = winners.reduce((n, val) => n + (val === true));
     const soloWon = winnerCount === 1;
     const soloLost = winnerCount === 3;
 
 
     const score = winners.map(winner => {
-      return winner === null ? 
+      return winner === null ?
         null
-        : winner ? 
+        : winner ?
           soloWon ? 3 * points : points
-          : soloLost ? -3 * points : -points
-    })
+          : soloLost ? -3 * points : -points;
+    });
 
     return {
       gameid: newGame.gameid,
@@ -78,7 +78,7 @@ class App extends Component {
       points,
       winners,
       soloWon,
-      soloLost
+      soloLost,
     };
   }
 
@@ -86,8 +86,8 @@ class App extends Component {
     const { games } = this.state;
     const game = this.newGameToGame(newGame);
     games[game.gameid] = game;
-  
-    this.setState({games:games})
+
+    this.setState({games:games});
     ls.set('games', games);
 
     this.resetNewGame(games.length);
@@ -97,11 +97,11 @@ class App extends Component {
     const { newGame } = this.state;
     if (newNewGame.checkboxes !== undefined) {
       newGame.checkboxes = newNewGame.checkboxes;
-    } 
+    }
     if (newNewGame.points !== undefined) {
       newGame.points = newNewGame.points;
     }
-    this.setState({newGame:newGame})
+    this.setState({newGame:newGame});
     ls.set('newGame', newGame);
   }
 
@@ -110,7 +110,7 @@ class App extends Component {
     const emptyNewGame  = this.emptyState()['newGame'];
     emptyNewGame.gameid = newIDX;
     this.setPlaying(playerCount, emptyNewGame.gameid);
-    this.setState({newGame:emptyNewGame})
+    this.setState({newGame:emptyNewGame});
     ls.set('newGame', emptyNewGame);
   }
 
@@ -156,10 +156,10 @@ class App extends Component {
     let { games, players, playerCount } = this.state;
     if (playerCount < 8) {
       players[playerCount].active = true;
-      playerCount++
+      playerCount++;
       this.setPlaying(playerCount, games.length);
-      this.setState({playerCount: playerCount})
-      this.setState({players: players})
+      this.setState({playerCount: playerCount});
+      this.setState({players: players});
       ls.set('players', players);
       ls.set('playerCount', playerCount);
       ls.set('playerCount', playerCount);
@@ -172,15 +172,15 @@ class App extends Component {
       playerCount--;
       this.setPlaying(playerCount, games[games.length-1].gameid);
       players[playerCount].active = false;
-      this.setState({players: players})
-      this.setState({playerCount: playerCount})
+      this.setState({players: players});
+      this.setState({playerCount: playerCount});
       ls.set('players', players);
       ls.set('playerCount', playerCount);
     }
   }
 
   render() {
-    const { players, games, newGame, playerCount } = this.state
+    const { players, games, newGame, playerCount } = this.state;
 
     return (
       <React.Fragment>

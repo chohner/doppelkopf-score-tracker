@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
-import { Popup, Button } from 'semantic-ui-react'
+import { Popup, Button } from 'semantic-ui-react';
 
 class ResetPopup extends Component {
   state = { resetPopupOpen: false }
-  
+
   handleClick = () => {
-    this.setState({ resetPopupOpen: false })
+    this.setState({ resetPopupOpen: false });
     this.props.onReset();
   }
-  
+
   handleOpen = () => {
-    this.setState({ resetPopupOpen: true })
+    this.setState({ resetPopupOpen: true });
   }
-  
+
   handleClose = () => {
-    this.setState({ resetPopupOpen: false })
+    this.setState({ resetPopupOpen: false });
   }
-  
-  render() { 
+
+  render() {
     return (
       <Popup
         name='resetPopup'

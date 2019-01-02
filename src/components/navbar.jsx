@@ -6,10 +6,10 @@ import PlayerPopup from './playerPopup';
 
 class NavBar extends Component {
   handleResetClick = () => {
-    this.props.onReset()
+    this.props.onReset();
   };
 
-  render() { 
+  render() {
     return (
       <Menu secondary>
         <Menu.Item content={<img src={require('../logo.svg')} alt='logo'/>}/>

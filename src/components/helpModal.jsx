@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal} from 'semantic-ui-react'
+import { Modal} from 'semantic-ui-react';
 
 const HelpModal = (props) => {
   return (
@@ -14,6 +14,6 @@ const HelpModal = (props) => {
       </Modal.Content>
     </Modal>
   );
-}
+};
 
 export default HelpModal;

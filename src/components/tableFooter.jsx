@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Checkbox, Input, Button, Icon } from 'semantic-ui-react'
+import { Table, Checkbox, Input, Button, Icon } from 'semantic-ui-react';
 
 class TableFooter extends Component {
   handleFocus = (event) => {
@@ -37,11 +37,11 @@ class TableFooter extends Component {
     } else if (winnerList.length > 3) {
       console.warn("Can't have more than 3 winners.");
     } else {
-      this.props.onSubmit(this.props.newGame)
+      this.props.onSubmit(this.props.newGame);
     }
   }
 
-  render() { 
+  render() {
     const { newGame, players } = this.props;
 
     const checkboxElements = newGame.checkboxes.map((checkbox, idx) => (
@@ -64,7 +64,7 @@ class TableFooter extends Component {
           pattern="\d*"
           max={50}
           min={0}
-          action={ <Button compact color='teal' icon='add' size='mini' onClick={ this.handlePointSubmit } />} 
+          action={ <Button compact color='teal' icon='add' size='mini' onClick={ this.handlePointSubmit } />}
           onFocus={this.handleFocus}
           onChange={this.handlePointInput}
           value={newGame.points}

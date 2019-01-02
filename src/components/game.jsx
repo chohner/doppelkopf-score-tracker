@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Icon, Popup} from 'semantic-ui-react'
+import { Table, Icon, Popup} from 'semantic-ui-react';
 
 class Game extends Component {
   handleItemClick = (gameid) => {
@@ -12,12 +12,12 @@ class Game extends Component {
     const pointString = soloPlayed ? `${3 * game.points} / ${game.points}` : game.points;
     const rowStyle = { borderTop: game.gameid%playerCount !== 0 ? null : "solid 2px gray"};
     const rowCells = game.score.map((score, idx) => {
-      const cellContent = score === null ? "-" : cumulativeScore[idx]
+      const cellContent = score === null ? "-" : cumulativeScore[idx];
       const cellPositive = game.winners[idx];
       const cellNegative = game.winners[idx] === false && game.points !== 0;
       const hidden = idx >= playerCount;
-      return <Table.Cell content={cellContent} key={idx} positive={cellPositive} negative={cellNegative} hidden={hidden}/>
-    })
+      return <Table.Cell content={cellContent} key={idx} positive={cellPositive} negative={cellNegative} hidden={hidden}/>;
+    });
 
     return (
       <Table.Row style={rowStyle}>

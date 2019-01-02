@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Popup, Button } from 'semantic-ui-react'
+import { Popup, Button } from 'semantic-ui-react';
 
 class PlayerPopup extends Component {
 
-  removePlayer = () => {this.props.onPlayerDelete()}
-  addNewPlayer = () => {this.props.onPlayerAdd()}
+  removePlayer = () => {this.props.onPlayerDelete();};
+  addNewPlayer = () => {this.props.onPlayerAdd();};
 
-  render() { 
+  render() {
     return (
       <Popup
         name='resetPopup'

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Container, List, Divider, Icon } from 'semantic-ui-react'
+import { Segment, Container, List, Divider, Icon } from 'semantic-ui-react';
 
 const PageFooter = () => {
   return (
@@ -16,6 +16,6 @@ const PageFooter = () => {
       </Container>
     </Segment>
   );
-}
+};
 
 export default PageFooter;
