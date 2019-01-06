@@ -13,7 +13,7 @@ class ErrorCatcher extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <Header as='h3' textAlign='center' content="Something went wrong - try resetting"/>;
+      return <Header as='h3' textAlign='center' content="Something went wrong - try resetting (top right) + reloading"/>;
     }
     return this.props.children;
   }
