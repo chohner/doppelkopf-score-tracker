@@ -1,7 +1,7 @@
 {
   "main.css": "/doko-butler/static/css/main.528b5f13.chunk.css",
-  "main.js": "/doko-butler/static/js/main.b6614ef9.chunk.js",
-  "main.js.map": "/doko-butler/static/js/main.b6614ef9.chunk.js.map",
+  "main.js": "/doko-butler/static/js/main.b6b7b997.chunk.js",
+  "main.js.map": "/doko-butler/static/js/main.b6b7b997.chunk.js.map",
   "static/css/1.41f8e177.chunk.css": "/doko-butler/static/css/1.41f8e177.chunk.css",
   "static/js/1.dff49070.chunk.js": "/doko-butler/static/js/1.dff49070.chunk.js",
   "static/js/1.dff49070.chunk.js.map": "/doko-butler/static/js/1.dff49070.chunk.js.map",
@@ -12,6 +12,6 @@
   "static/css/1.41f8e177.chunk.css.map": "/doko-butler/static/css/1.41f8e177.chunk.css.map",
   "static/css/main.528b5f13.chunk.css.map": "/doko-butler/static/css/main.528b5f13.chunk.css.map",
   "index.html": "/doko-butler/index.html",
-  "precache-manifest.16bc50c9522b5f8a4bc7579cc4d5d755.js": "/doko-butler/precache-manifest.16bc50c9522b5f8a4bc7579cc4d5d755.js",
+  "precache-manifest.9f6812904dcbc2825bebe9e7e9e8f02c.js": "/doko-butler/precache-manifest.9f6812904dcbc2825bebe9e7e9e8f02c.js",
   "service-worker.js": "/doko-butler/service-worker.js"
 }

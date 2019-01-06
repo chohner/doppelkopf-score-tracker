@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/doko-butler/static/media/icons.faff9214.woff"
   },
   {
-    "revision": "b6614ef934a5edca8347",
+    "revision": "b6b7b997eb56217c003a",
     "url": "/doko-butler/static/css/main.528b5f13.chunk.css"
   },
   {
@@ -44,8 +44,8 @@ self.__precacheManifest = [
     "url": "/doko-butler/static/media/icons.0ab54153.woff2"
   },
   {
-    "revision": "b6614ef934a5edca8347",
-    "url": "/doko-butler/static/js/main.b6614ef9.chunk.js"
+    "revision": "b6b7b997eb56217c003a",
+    "url": "/doko-butler/static/js/main.b6b7b997.chunk.js"
   },
   {
     "revision": "e8c322de9658cbeb8a774b6624167c2c",
@@ -88,7 +88,7 @@ self.__precacheManifest = [
     "url": "/doko-butler/static/css/1.41f8e177.chunk.css"
   },
   {
-    "revision": "fd53f03fe4f11113a26891a31f57013d",
+    "revision": "48a66e6e55adf287113c39c7123ad5b3",
     "url": "/doko-butler/index.html"
   }
 ];
