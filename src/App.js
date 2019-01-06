@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import ErrorCatcher from './components/errorCatcher';
 import NavBar from './components/navbar';
 import GameList from './components/gamelist';
 import TableHeader from './components/tableHeader';
@@ -185,11 +186,13 @@ class App extends Component {
     return (
       <React.Fragment>
         <NavBar onReset={this.handleReset} onPlayerAdd={this.addNewPlayer} onPlayerDelete={this.removePlayer}/>
-        <Table fixed selectable unstackable columns={5} striped textAlign='center' size='small' style={{borderCollapse: "collapse"}}>
-          <TableHeader players={players} onChange={this.handlePlayerChange}/>
-          <GameList games={games} playerCount={playerCount} onChange={this.handleGameChange}/>
-          <TableFooter players={players} newGame={newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded}/>
-        </Table>
+        <ErrorCatcher>
+          <Table fixed selectable unstackable columns={5} striped textAlign='center' size='small' style={{borderCollapse: "collapse"}}>
+            <TableHeader players={players} onChange={this.handlePlayerChange}/>
+            <GameList games={games} playerCount={playerCount} onChange={this.handleGameChange}/>
+            <TableFooter players={players} newGame={newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded}/>
+          </Table>
+        </ErrorCatcher>
         <PageFooter />
       </React.Fragment>
     );
