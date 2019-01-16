@@ -20,7 +20,6 @@ function emptyState() {
       {playerid: 4, name: "Player 5", playing: false, active:false},
       {playerid: 5, name: "Player 6", playing: false, active:false},
       {playerid: 6, name: "Player 7", playing: false, active:false},
-      {playerid: 7, name: "Player 8", playing: false, active:false},
     ],
     playerCount: 4,
     games: [],
@@ -34,7 +33,6 @@ function emptyState() {
         {playerid: 4, checked: false},
         {playerid: 5, checked: false},
         {playerid: 6, checked: false},
-        {playerid: 7, checked: false},
       ],
       points: '',
     },
@@ -156,7 +154,7 @@ class App extends Component {
 
   addNewPlayer = () => {
     let { games, players, playerCount } = this.state;
-    if (playerCount < 8) {
+    if (playerCount < 7) {
       players[playerCount].active = true;
       playerCount++;
       this.setPlaying(playerCount, games.length);
