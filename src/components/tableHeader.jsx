@@ -20,7 +20,7 @@ class TableHeader extends Component {
           {this.props.players.map((player, idx) => (
             <Table.HeaderCell key={idx} hidden={!player.active}>
               <Form>
-                <Input transparent type="text" placeholder={`Player ${player.id}`} id={player.id} value={player.name} onChange={this.handleChange}>
+                <Input transparent type="text" placeholder={`Player ${player.playerid + 1}`} id={player.playerid} value={player.name} onChange={this.handleChange}>
                   <input style={nameStyle} />
                 </Input>
               </Form>
