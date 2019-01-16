@@ -13,12 +13,11 @@ class NavBar extends Component {
     return (
       <Menu secondary>
         <Menu.Item content={<img src={require('../logo.svg')} alt='logo'/>}/>
-        <Menu.Item content={<Header as='h3' content="Doko Butler"/>}/>
-        <HelpModal trigger={<Menu.Item name='help' content='Help'/>}/>
+        <HelpModal trigger={<Menu.Item name='help' content={<Header as='h3' content="Doko Butler"/>}/>}/>
         <PlayerPopup
           onPlayerAdd={this.props.onPlayerAdd}
           onPlayerDelete={this.props.onPlayerDelete}
-          trigger={<Menu.Item position='right' content="Players"/>}
+          trigger={<Menu.Item position='left' content="Players"/>}
         />
         <ResetPopup onReset={this.handleResetClick} trigger={
           <Menu.Item position='right' content={

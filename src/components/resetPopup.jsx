@@ -28,6 +28,7 @@ class ResetPopup extends Component {
         trigger={this.props.trigger}
         content={<Button color='red' name='reset' content='Confirm reset' onClick={this.handleClick}/>}
         on='click'
+        position='bottom right'
       />
     );
   }

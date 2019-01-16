@@ -19,6 +19,7 @@ class PlayerPopup extends Component {
           </Button.Group>
         }
         on='click'
+        position='bottom center'
       />
     );
   }
