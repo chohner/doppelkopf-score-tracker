@@ -1,6 +1,6 @@
 {
   "name": "doko_butler",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "homepage": "https://chohner.github.io/doko-butler",
   "dependencies": {
