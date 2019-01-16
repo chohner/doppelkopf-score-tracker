@@ -1,10 +1,10 @@
 {
   "main.css": "/doko-butler/static/css/main.b079b487.chunk.css",
-  "main.js": "/doko-butler/static/js/main.4ee7ff7f.chunk.js",
-  "main.js.map": "/doko-butler/static/js/main.4ee7ff7f.chunk.js.map",
+  "main.js": "/doko-butler/static/js/main.82ab356d.chunk.js",
+  "main.js.map": "/doko-butler/static/js/main.82ab356d.chunk.js.map",
   "static/css/1.10554f72.chunk.css": "/doko-butler/static/css/1.10554f72.chunk.css",
-  "static/js/1.59f68f19.chunk.js": "/doko-butler/static/js/1.59f68f19.chunk.js",
-  "static/js/1.59f68f19.chunk.js.map": "/doko-butler/static/js/1.59f68f19.chunk.js.map",
+  "static/js/1.4cc85b20.chunk.js": "/doko-butler/static/js/1.4cc85b20.chunk.js",
+  "static/js/1.4cc85b20.chunk.js.map": "/doko-butler/static/js/1.4cc85b20.chunk.js.map",
   "runtime~main.js": "/doko-butler/static/js/runtime~main.fa9da640.js",
   "runtime~main.js.map": "/doko-butler/static/js/runtime~main.fa9da640.js.map",
   "static/media/semantic.min.css": "/doko-butler/static/media/brand-icons.a1a749e8.svg",
@@ -12,6 +12,6 @@
   "static/css/main.b079b487.chunk.css.map": "/doko-butler/static/css/main.b079b487.chunk.css.map",
   "static/css/1.10554f72.chunk.css.map": "/doko-butler/static/css/1.10554f72.chunk.css.map",
   "index.html": "/doko-butler/index.html",
-  "precache-manifest.aeef86d8c1c619d3a1b84d92f29253c8.js": "/doko-butler/precache-manifest.aeef86d8c1c619d3a1b84d92f29253c8.js",
+  "precache-manifest.8273675fe6d03a6b346e5812b4567eea.js": "/doko-butler/precache-manifest.8273675fe6d03a6b346e5812b4567eea.js",
   "service-worker.js": "/doko-butler/service-worker.js"
 }
