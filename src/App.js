@@ -6,6 +6,7 @@ import GameList from './components/gamelist';
 import TableHeader from './components/tableHeader';
 import TableFooter from './components/tableFooter';
 import PageFooter from './components/pageFooter';
+import ScorePlot from './components/scorePlot';
 import { Table } from 'semantic-ui-react';
 import ls from 'local-storage';
 
@@ -194,6 +195,7 @@ class App extends Component {
             <TableFooter players={players} newGame={newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded}/>
           </Table>
         </ErrorCatcher>
+        <ScorePlot players={players} games={games} playerCount={playerCount}/>
         <PageFooter />
       </React.Fragment>
     );
