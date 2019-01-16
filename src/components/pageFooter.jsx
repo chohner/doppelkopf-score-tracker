@@ -3,7 +3,7 @@ import { Segment, Container, List, Divider, Icon } from 'semantic-ui-react';
 
 const PageFooter = () => {
   return (
-    <Segment style={{ margin: '5em 0em 0em', padding: '5em 0em' }} vertical>
+    <Segment style={{ padding: '0em 0em 5em 0em' }} vertical>
       <Container textAlign='center'>
         <Divider section />
         <List horizontal divided link size='small'>
