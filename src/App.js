@@ -171,7 +171,8 @@ class App extends Component {
     let { players, playerCount, games } = this.state;
     if (playerCount > 4) {
       playerCount--;
-      this.setPlaying(playerCount, games[games.length-1].gameid);
+      const gameToChange = games.length === 0 ? games.length : games[games.length-1].gameid;
+      this.setPlaying(playerCount, gameToChange);
       players[playerCount].active = false;
       this.setState({players: players});
       this.setState({playerCount: playerCount});
