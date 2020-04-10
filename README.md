@@ -1,39 +1,24 @@
 # Doppelkopf Butler
-Doppelkopf (doko) butler helps you keep track of your running doppelkopf score.
-Simply enter the game score and the winner. Allows solos and changing player names.
+Doppelkopf (doko) butler helps you keep track of your doppelkopf score. Simply enter the game score and select the winner(s).
 
 It is deployed using gh-pages at https://chohner.github.io/doko-butler/
 
-Plans for the future:
-- Track stats
-- Allow more than 4 players
-- Progressive Web App
-- Generate score plot over games
-
-This is mainly a small learning project to pick up react.
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is mainly a small learning project to pick up react, bootstrapped using [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Runs app in dev mode (Hotreload, linting warnings in console), served at [http://localhost:3000](http://localhost:3000).
 
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launch test runner in interactive watch mode.<br>
+See [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
+Build minified production app to `build/`.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm run deploy`
+Deploys production build to gh-pages branch
 
-The build is minified and the filenames include the hashes.<br>
+### `npm run lint`
+Run eslint across `src/` folder.
