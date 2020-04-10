@@ -6,10 +6,14 @@ class Game extends Component {
     this.props.onChange(gameid);
   }
 
+  displayPoints(points, soloPlayed) {
+    return soloPlayed ? `${3 * points} / ${points}` : String(points);
+  }
+
   render() {
     const { game, cumulativeScore, playerCount } = this.props;
     const soloPlayed = game.soloWon || game.soloLost;
-    const pointString = soloPlayed ? `${3 * game.points} / ${game.points}` : game.points;
+    const pointString = this.displayPoints(game.points, soloPlayed);
     const rowStyle = { borderTop: game.gameid%playerCount !== 0 ? null : "solid 2px gray"};
     const rowCells = game.score.map((score, idx) => {
       const cellContent = score === null ? "-" : cumulativeScore[idx];

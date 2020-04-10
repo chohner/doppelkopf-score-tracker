@@ -3,12 +3,14 @@ import './App.css';
 import ErrorCatcher from './components/errorCatcher';
 import NavBar from './components/navbar';
 import GameList from './components/gamelist';
+import Game from './components/game';
 import TableHeader from './components/tableHeader';
 import TableFooter from './components/tableFooter';
 import PageFooter from './components/pageFooter';
 import ScorePlot from './components/scorePlot';
 import { Table } from 'semantic-ui-react';
 import ls from 'local-storage';
+import stringify from 'csv-stringify/lib/sync';
 
 function emptyState() {
   return {
@@ -23,6 +25,7 @@ function emptyState() {
     ],
     playerCount: 4,
     games: [],
+    cumulativeScore: [],
     newGame: {
       gameid: 0,
       checkboxes: [
@@ -43,6 +46,7 @@ class App extends Component {
   state = {
     players: ls.get('players') || emptyState().players,
     games: ls.get('games') || emptyState().games,
+    cumulativeScore: ls.get('cumulativeScore') || emptyState().cumulativeScore,
     newGame: ls.get('newGame') || emptyState().newGame,
     playerCount: ls.get('playerCount') || emptyState().playerCount,
   }
@@ -86,6 +90,10 @@ class App extends Component {
     const { games } = this.state;
     const game = this.newGameToGame(newGame);
     games[game.gameid] = game;
+
+    const cumulativeScore = GameList.prototype.cumsum2d(games.map(game => game.score));
+    this.setState({cumulativeScore:cumulativeScore});
+    ls.set('cumulativeScore', cumulativeScore);
 
     this.setState({games:games});
     ls.set('games', games);
@@ -136,6 +144,7 @@ class App extends Component {
     ls.set('playerCount', emptyState.playerCount);
     ls.set('games', emptyState.games);
     ls.set('newGame', emptyState.newGame);
+    ls.set('cumulativeScore', emptyState.cumulativeScore);
   }
 
   handleGameChange = (idx) => {
@@ -180,16 +189,43 @@ class App extends Component {
     }
   }
 
-  render() {
-    const { players, games, newGame, playerCount } = this.state;
+  downloadStringAsFile(content, filename) {
+    const file = new Blob([content], {type: 'text/plain'});
+    const element = document.createElement("a");
+    element.href = URL.createObjectURL(file);
+    element.download = filename;
+    document.body.appendChild(element);
+    element.click();
+  }
 
+  downloadCSV = () => {
+    let { players, playerCount, cumulativeScore, games } = this.state;
+    const headerRow = ["#"];
+    for (let idx = 0; idx < playerCount; idx++) {
+      headerRow.push(players[idx].name);
+    }
+    headerRow.push("game");
+    const csvTable = [headerRow];
+    cumulativeScore.forEach((cumScoreRow, idx) => {
+      const game = games[idx];
+      let row = [game.gameid];
+      row = row.concat(cumScoreRow.slice(0, playerCount));
+      row.push(Game.prototype.displayPoints(game.points, game.soloWon || game.soloLost));
+      csvTable.push(row);
+    });
+    const curDate = new Date();
+    this.downloadStringAsFile(stringify(csvTable), `doko_game_${curDate.toISOString()}.csv`);
+  }
+
+  render() {
+    let { players, games, newGame, playerCount, cumulativeScore } = this.state;
     return (
       <React.Fragment>
-        <NavBar onReset={this.handleReset} onPlayerAdd={this.addNewPlayer} onPlayerDelete={this.removePlayer}/>
+        <NavBar onReset={this.handleReset} onPlayerAdd={this.addNewPlayer} onPlayerDelete={this.removePlayer} onDownloadCSV={this.downloadCSV}/>
         <ErrorCatcher>
           <Table fixed selectable unstackable columns={5} striped textAlign='center' size='small' style={{borderCollapse: "collapse"}}>
             <TableHeader players={players} onChange={this.handlePlayerChange}/>
-            <GameList games={games} playerCount={playerCount} onChange={this.handleGameChange}/>
+            <GameList cumulativeScore={cumulativeScore} games={games} playerCount={playerCount} onChange={this.handleGameChange}/>
             <TableFooter players={players} newGame={newGame} onChange={this.handleNewGameChange} onSubmit={this.handleGameAdded}/>
           </Table>
         </ErrorCatcher>

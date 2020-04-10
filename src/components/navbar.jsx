@@ -3,6 +3,7 @@ import { Menu, Icon, Label, Header } from 'semantic-ui-react';
 import HelpModal from './helpModal';
 import ResetPopup from './resetPopup';
 import PlayerPopup from './playerPopup';
+import CsvPopup from './csvPopup';
 
 class NavBar extends Component {
   handleResetClick = () => {
@@ -17,7 +18,11 @@ class NavBar extends Component {
         <PlayerPopup
           onPlayerAdd={this.props.onPlayerAdd}
           onPlayerDelete={this.props.onPlayerDelete}
-          trigger={<Menu.Item position='left' content="Players"/>}
+          trigger={<Menu.Item content="Players"/>}
+        />
+        <CsvPopup
+          onDownloadCSV={this.props.onDownloadCSV}
+          trigger={<Menu.Item position='left' content="CSV"/>}
         />
         <ResetPopup onReset={this.handleResetClick} trigger={
           <Menu.Item position='right' content={
