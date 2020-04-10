@@ -1,17 +1,27 @@
 {
-  "main.css": "/doko-butler/static/css/main.b079b487.chunk.css",
-  "main.js": "/doko-butler/static/js/main.82ab356d.chunk.js",
-  "main.js.map": "/doko-butler/static/js/main.82ab356d.chunk.js.map",
-  "static/css/1.10554f72.chunk.css": "/doko-butler/static/css/1.10554f72.chunk.css",
-  "static/js/1.4cc85b20.chunk.js": "/doko-butler/static/js/1.4cc85b20.chunk.js",
-  "static/js/1.4cc85b20.chunk.js.map": "/doko-butler/static/js/1.4cc85b20.chunk.js.map",
-  "runtime~main.js": "/doko-butler/static/js/runtime~main.fa9da640.js",
-  "runtime~main.js.map": "/doko-butler/static/js/runtime~main.fa9da640.js.map",
-  "static/media/semantic.min.css": "/doko-butler/static/media/brand-icons.a1a749e8.svg",
-  "static/media/logo.svg": "/doko-butler/static/media/logo.62486c72.svg",
-  "static/css/main.b079b487.chunk.css.map": "/doko-butler/static/css/main.b079b487.chunk.css.map",
-  "static/css/1.10554f72.chunk.css.map": "/doko-butler/static/css/1.10554f72.chunk.css.map",
-  "index.html": "/doko-butler/index.html",
-  "precache-manifest.8273675fe6d03a6b346e5812b4567eea.js": "/doko-butler/precache-manifest.8273675fe6d03a6b346e5812b4567eea.js",
-  "service-worker.js": "/doko-butler/service-worker.js"
+  "files": {
+    "main.css": "/doko-butler/static/css/main.25ac248d.chunk.css",
+    "main.js": "/doko-butler/static/js/main.dbf24083.chunk.js",
+    "main.js.map": "/doko-butler/static/js/main.dbf24083.chunk.js.map",
+    "runtime-main.js": "/doko-butler/static/js/runtime-main.a79ec133.js",
+    "runtime-main.js.map": "/doko-butler/static/js/runtime-main.a79ec133.js.map",
+    "static/css/2.a8534dc5.chunk.css": "/doko-butler/static/css/2.a8534dc5.chunk.css",
+    "static/js/2.fb14a591.chunk.js": "/doko-butler/static/js/2.fb14a591.chunk.js",
+    "static/js/2.fb14a591.chunk.js.map": "/doko-butler/static/js/2.fb14a591.chunk.js.map",
+    "index.html": "/doko-butler/index.html",
+    "precache-manifest.768730c79c24e8a41cecdfc42c95be71.js": "/doko-butler/precache-manifest.768730c79c24e8a41cecdfc42c95be71.js",
+    "service-worker.js": "/doko-butler/service-worker.js",
+    "static/css/2.a8534dc5.chunk.css.map": "/doko-butler/static/css/2.a8534dc5.chunk.css.map",
+    "static/css/main.25ac248d.chunk.css.map": "/doko-butler/static/css/main.25ac248d.chunk.css.map",
+    "static/js/2.fb14a591.chunk.js.LICENSE.txt": "/doko-butler/static/js/2.fb14a591.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/doko-butler/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/logo.svg": "/doko-butler/static/media/logo.62486c72.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a79ec133.js",
+    "static/css/2.a8534dc5.chunk.css",
+    "static/js/2.fb14a591.chunk.js",
+    "static/css/main.25ac248d.chunk.css",
+    "static/js/main.dbf24083.chunk.js"
+  ]
 }
