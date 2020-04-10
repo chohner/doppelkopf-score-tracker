@@ -9,7 +9,7 @@ class PlayerPopup extends Component {
   render() {
     return (
       <Popup
-        name='resetPopup'
+        name='playerPopup'
         hideOnScroll
         trigger={this.props.trigger}
         content={
