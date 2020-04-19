@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "72b75b6f3bb959003d4d3789d35da87c",
+    "revision": "169ba7b14c4a35b72e4eedbeb5848a25",
     "url": "/doko-butler/index.html"
   },
   {
-    "revision": "d791544989fb9e716fa7",
+    "revision": "f7077cf9e88f56ecd614",
     "url": "/doko-butler/static/css/2.a8534dc5.chunk.css"
   },
   {
-    "revision": "434adc484478c3926dc9",
+    "revision": "3c1ad3923d104fc8b827",
     "url": "/doko-butler/static/css/main.25ac248d.chunk.css"
   },
   {
-    "revision": "d791544989fb9e716fa7",
-    "url": "/doko-butler/static/js/2.fb14a591.chunk.js"
+    "revision": "f7077cf9e88f56ecd614",
+    "url": "/doko-butler/static/js/2.fcefbba3.chunk.js"
   },
   {
     "revision": "231c7f53b0554e061d179ec3bc2a2541",
-    "url": "/doko-butler/static/js/2.fb14a591.chunk.js.LICENSE.txt"
+    "url": "/doko-butler/static/js/2.fcefbba3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "434adc484478c3926dc9",
-    "url": "/doko-butler/static/js/main.dbf24083.chunk.js"
+    "revision": "3c1ad3923d104fc8b827",
+    "url": "/doko-butler/static/js/main.d05d175c.chunk.js"
   },
   {
     "revision": "e46d275bbedbb2489a73",
