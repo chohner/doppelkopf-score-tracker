@@ -16,7 +16,7 @@ class ScorePlot extends Component {
 
     if (games.length > 0) {
       const plotLayout = {
-        labels: Array.from({length: games.length}, (v, k) => k+1),
+        labels: Array.from({length: games.length}, (v, k) => k),
         datasets: [],
       };
 
@@ -32,6 +32,7 @@ class ScorePlot extends Component {
           data: cumSum2d.map(game => game[idx]),
         });
       }
+      plotLayout.datasets.forEach(dataset => { dataset.data.unshift(0); });
 
       const panels = [
         {
