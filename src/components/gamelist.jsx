@@ -15,7 +15,9 @@ class GameList extends Component {
 
   cumsum2d(array_2d) {
     const cumSum = Array(array_2d.length).fill(Array(array_2d[0].length));
-    cumSum[0] = array_2d[0];
+    array_2d[0].forEach((el, idx) => {
+      cumSum[0][idx] = el === null ? 0 : el;
+    });
     array_2d.slice(1).forEach((innerArr, arridx) => {
       cumSum[arridx+1] =  innerArr.map((val, validx) => {
         return val + cumSum[arridx][validx];
