@@ -206,9 +206,10 @@ class App extends Component {
     }
     headerRow.push("game");
     const csvTable = [headerRow];
+    csvTable.push(new Array(1 + playerCount).fill(0));
     cumulativeScore.forEach((cumScoreRow, idx) => {
       const game = games[idx];
-      let row = [game.gameid];
+      let row = [game.gameid + 1];
       row = row.concat(cumScoreRow.slice(0, playerCount));
       row.push(Game.prototype.displayPoints(game.points, game.soloWon || game.soloLost));
       csvTable.push(row);
