@@ -16,7 +16,7 @@ class ScorePlot extends Component {
 
     if (games.length > 0) {
       const plotLayout = {
-        labels: Array.from({length: games.length}, (v, k) => k),
+        labels: Array.from({length: games.length + 1}, (v, k) => k),
         datasets: [],
       };
 
