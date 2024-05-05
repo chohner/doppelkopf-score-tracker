@@ -8,7 +8,7 @@ const PageFooter = () => {
         <Divider section />
         <List horizontal divided link size='small'>
           <List.Item content={`${process.env.REACT_APP_NAME} ${process.env.REACT_APP_VERSION}`}/>
-          <List.Item as='a' href='https://github.com/chohner/doko-butler' target="_blank">
+          <List.Item as='a' href='https://chohner.github.io/doppelkopf-score-tracker' target="_blank">
             <Icon name='github'/> github
           </List.Item>
           <List.Item as='a' href='https://chohner.com' target="_blank" content={"made by chohner"}/>

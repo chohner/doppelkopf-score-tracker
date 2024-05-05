@@ -14,7 +14,7 @@ class NavBar extends Component {
     return (
       <Menu secondary>
         <Menu.Item content={<img src={require('../logo.svg')} alt='logo'/>}/>
-        <HelpModal trigger={<Menu.Item name='help' content={<Header as='h3' content="Doko Butler"/>}/>}/>
+        <HelpModal trigger={<Menu.Item name='help' content={<Header as='h3' content="Doppelkopf Score Tracker"/>}/>}/>
         <PlayerPopup
           onPlayerAdd={this.props.onPlayerAdd}
           onPlayerDelete={this.props.onPlayerDelete}

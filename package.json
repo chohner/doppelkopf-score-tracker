@@ -1,8 +1,8 @@
 {
-  "name": "doko_butler",
+  "name": "doppelkopf-score-tracker",
   "version": "0.5.3",
   "private": false,
-  "homepage": "https://chohner.github.io/doko-butler",
+  "homepage": "https://chohner.github.io/doppelkopf-score-tracker",
   "dependencies": {
     "chart.js": "^2.9.3",
     "csv-stringify": "^5.3.6",
