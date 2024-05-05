@@ -50,7 +50,8 @@
   },
   "overrides": {
     "react-scripts": {
-      "@svgr/webpack": "~6.5.1"
+      "@svgr/webpack": "~6.5.1",
+      "resolve-url-loader": "^5.0.0"
     }
   }
 }
