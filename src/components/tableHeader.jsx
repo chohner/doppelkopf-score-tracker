@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Table, Form, Input } from 'semantic-ui-react';
+import React, { Component } from "react";
+import { Table, Form, Input } from "semantic-ui-react";
 
 class TableHeader extends Component {
   handleChange = (event) => {
     const players = [...this.props.players];
     players[event.target.id].name = event.target.value;
     this.props.onChange(players);
-  }
+  };
 
   render() {
     const nameStyle = {
@@ -20,7 +20,14 @@ class TableHeader extends Component {
           {this.props.players.map((player, idx) => (
             <Table.HeaderCell key={idx} hidden={!player.active}>
               <Form>
-                <Input transparent type="text" placeholder={`Player ${player.playerid + 1}`} id={player.playerid} value={player.name} onChange={this.handleChange}>
+                <Input
+                  transparent
+                  type="text"
+                  placeholder={`Player ${player.playerid + 1}`}
+                  id={player.playerid}
+                  value={player.name}
+                  onChange={this.handleChange}
+                >
                   <input style={nameStyle} />
                 </Input>
               </Form>

@@ -1,26 +1,48 @@
-import React, { Component } from 'react';
-import { Accordion } from 'semantic-ui-react';
-import { Line } from 'react-chartjs-2';
-import Gamelist from './gamelist';
+import React, { Component } from "react";
+import { Accordion } from "semantic-ui-react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import Gamelist from "./gamelist";
 
 const colors = [
-  'rgba(22, 70, 112,1)',
-  'rgba(145, 80, 150,1)',
-  'rgba(245, 89, 110,1)',
-  'rgba(255, 166, 0,1)',
+  "rgba(22, 70, 112,1)",
+  "rgba(145, 80, 150,1)",
+  "rgba(245, 89, 110,1)",
+  "rgba(255, 166, 0,1)",
 ];
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+);
 
 class ScorePlot extends Component {
   render() {
-    const {players, playerCount, games} = this.props;
+    const { players, playerCount, games } = this.props;
 
     if (games.length > 0) {
       const plotLayout = {
-        labels: Array.from({length: games.length + 1}, (v, k) => k),
+        labels: Array.from({ length: games.length + 1 }, (v, k) => k),
         datasets: [],
       };
 
-      const cumSum2d = Gamelist.prototype.cumsum2d(games.map(game => game.score));
+      const cumSum2d = Gamelist.prototype.cumsum2d(
+        games.map((game) => game.score),
+      );
 
       for (let idx = 0; idx < playerCount; idx++) {
         plotLayout.datasets.push({
@@ -29,24 +51,24 @@ class ScorePlot extends Component {
           borderColor: colors[idx],
           backgroundColor: colors[idx],
           lineTension: 0.2,
-          data: cumSum2d.map(game => game[idx]),
+          data: cumSum2d.map((game) => game[idx]),
         });
       }
-      plotLayout.datasets.forEach(dataset => { dataset.data.unshift(0); });
+      plotLayout.datasets.forEach((dataset) => {
+        dataset.data.unshift(0);
+      });
 
       const panels = [
         {
-          key: 'plot',
-          title: 'Progress plot',
-          content: {content: (<Line data={plotLayout} />)},
+          key: "plot",
+          title: "Progress plot",
+          content: { content: <Line data={plotLayout} /> },
         },
       ];
 
-      return (
-        <Accordion defaultActiveIndex={-1} panels={panels} />
-      );
+      return <Accordion defaultActiveIndex={-1} panels={panels} />;
     } else {
-      return (null);
+      return null;
     }
   }
 }

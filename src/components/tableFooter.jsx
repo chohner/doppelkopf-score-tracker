@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Table, Checkbox, Input, Button, Icon } from 'semantic-ui-react';
+import React, { Component } from "react";
+import { Table, Checkbox, Input, Button, Icon } from "semantic-ui-react";
 
 class TableFooter extends Component {
   handleFocus = (event) => {
@@ -7,19 +7,19 @@ class TableFooter extends Component {
     setTimeout(() => {
       el.select();
     }, 0);
-  }
+  };
 
   handleWinnerInput = (_, data) => {
     const checkboxes = this.props.newGame.checkboxes.slice();
     checkboxes[data.playerid].checked = data.checked;
-    this.props.onChange({checkboxes:checkboxes});
-  }
+    this.props.onChange({ checkboxes: checkboxes });
+  };
 
   handlePointInput = (_, data) => {
-    this.props.onChange({points:data.value});
-  }
+    this.props.onChange({ points: data.value });
+  };
 
-  handlePointSubmit= (_, data) => {
+  handlePointSubmit = (_, data) => {
     const { points, checkboxes } = this.props.newGame;
     let nullGame = points === "0";
     let winnerList = [];
@@ -39,37 +39,51 @@ class TableFooter extends Component {
     } else {
       this.props.onSubmit(this.props.newGame);
     }
-  }
+  };
 
   render() {
     const { newGame, players } = this.props;
 
     const checkboxElements = newGame.checkboxes.map((checkbox, idx) => (
       <Table.HeaderCell key={idx} hidden={!players[idx].active}>
-        {players[idx].playing
-          ? <Checkbox
+        {players[idx].playing ? (
+          <Checkbox
             playerid={idx}
             checked={checkbox.checked}
             disabled={!players[idx].playing}
-            onChange={this.handleWinnerInput}/>
-          : <Icon name='x' />}
+            onChange={this.handleWinnerInput}
+          />
+        ) : (
+          <Icon name="x" />
+        )}
       </Table.HeaderCell>
     ));
 
-    const pointSubmitElement =
+    const pointSubmitElement = (
       <Table.HeaderCell>
-        <Input fluid
-          size='mini'
-          type='number'
+        <Input
+          fluid
+          size="mini"
+          type="number"
           pattern="\d*"
           max={50}
           min={0}
-          action={ <Button compact color='teal' icon='add' size='mini' onClick={ this.handlePointSubmit } />}
+          action={
+            <Button
+              compact
+              color="teal"
+              icon="add"
+              size="mini"
+              onClick={this.handlePointSubmit}
+            />
+          }
           onFocus={this.handleFocus}
           onChange={this.handlePointInput}
           value={newGame.points}
-          placeholder='Points'/>
-      </Table.HeaderCell>;
+          placeholder="Points"
+        />
+      </Table.HeaderCell>
+    );
 
     return (
       <Table.Footer fullWidth>

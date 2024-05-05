@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Table, Icon, Popup} from 'semantic-ui-react';
+import React, { Component } from "react";
+import { Table, Icon, Popup } from "semantic-ui-react";
 
 class Game extends Component {
   handleItemClick = (gameid) => {
     this.props.onChange(gameid);
-  }
+  };
 
   displayPoints(points, soloPlayed) {
     return soloPlayed ? `${3 * points} / ${points}` : String(points);
@@ -14,13 +14,23 @@ class Game extends Component {
     const { game, cumulativeScore, playerCount } = this.props;
     const soloPlayed = game.soloWon || game.soloLost;
     const pointString = this.displayPoints(game.points, soloPlayed);
-    const rowStyle = { borderTop: game.gameid%playerCount !== 0 ? null : "solid 2px gray"};
+    const rowStyle = {
+      borderTop: game.gameid % playerCount !== 0 ? null : "solid 2px gray",
+    };
     const rowCells = game.score.map((score, idx) => {
       const cellContent = score === null ? "-" : cumulativeScore[idx];
       const cellPositive = game.winners[idx];
       const cellNegative = game.winners[idx] === false && game.points !== 0;
       const hidden = idx >= playerCount;
-      return <Table.Cell content={cellContent} key={idx} positive={cellPositive} negative={cellNegative} hidden={hidden}/>;
+      return (
+        <Table.Cell
+          content={cellContent}
+          key={idx}
+          positive={cellPositive}
+          negative={cellNegative}
+          hidden={hidden}
+        />
+      );
     });
 
     return (
@@ -28,17 +38,15 @@ class Game extends Component {
         {rowCells}
         <Popup
           hideOnScroll
-          trigger={
-            <Table.Cell content={pointString}/>
-          }
+          trigger={<Table.Cell content={pointString} />}
           content={
             <Icon
-              name='edit outline'
+              name="edit outline"
               onClick={() => this.handleItemClick(game.gameid)}
             />
           }
-          on='click'
-          position='top center'
+          on="click"
+          position="top center"
         />
       </Table.Row>
     );
