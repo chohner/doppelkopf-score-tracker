@@ -7,7 +7,7 @@ const PageFooter = () => {
       <Container textAlign='center'>
         <Divider section />
         <List horizontal divided link size='small'>
-          <List.Item content={`${process.env.REACT_APP_NAME} ${process.env.REACT_APP_VERSION}`}/>
+          <List.Item content={`${import.meta.env.VITE_REACT_APP_NAME} ${import.meta.env.VITE_REACT_APP_VERSION}`}/>
           <List.Item as='a' href='https://chohner.github.io/doppelkopf-score-tracker' target="_blank">
             <Icon name='github'/> github
           </List.Item>
