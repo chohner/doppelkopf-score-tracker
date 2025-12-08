@@ -14,7 +14,7 @@ const HelpModal = (props) => {
             <li>To add/remove players, click Players and select Add or Remove. Player count is limited between 4 and 7 and may be changed any time.</li>
             <li>To edit a previous game, select the corresponding score and click the edit icon. It will populate the bottom row with the game data</li>
             <li>To reset everything, click the red RESET on the top right and confirm</li>
-            <li>Games with a score of 0 must have no winners, games with a score >0 must have a least one winner</li>
+            <li>Games with a score of 0 must have no winners, games with a score &gt;0 must have a least one winner</li>
           </ul>
           <p>Don't worry if you accidentally reload or close the page - Doppelkopf Score Tracker will keep the score.</p>
         </Modal.Description>
