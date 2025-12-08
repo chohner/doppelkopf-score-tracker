@@ -69,13 +69,16 @@ class App extends Component {
     const soloWon = winnerCount === 1;
     const soloLost = winnerCount === 3;
 
-
-    const score = winners.map(winner => {
-      return winner === null ?
-        null
-        : winner ?
-          soloWon ? 3 * points : points
-          : soloLost ? -3 * points : -points;
+    const score = winners.map((winner) => {
+      return winner === null
+        ? null
+        : winner
+        ? soloWon
+          ? 3 * points
+          : points
+        : soloLost
+        ? -3 * points
+        : -points;
     });
 
     return {
@@ -215,7 +218,7 @@ class App extends Component {
     }
     headerRow.push("game");
     const csvTable = [headerRow];
-    csvTable.push(new Array(1 + playerCount).fill(0));
+    csvTable.push(Array.from({ length: 1 + playerCount }).fill(0));
     cumulativeScore.forEach((cumScoreRow, idx) => {
       const game = games[idx];
       let row = [game.gameid + 1];

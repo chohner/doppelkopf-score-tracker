@@ -19,22 +19,7 @@
     "serve": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "lint": "eslint src/**/*.js src/**/*.jsx"
-  },
-  "eslintConfig": {
-    "extends": "react-app",
-    "rules": {
-      "indent": [
-        "error",
-        2
-      ],
-      "no-trailing-spaces": "error",
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ],
-      "semi": "error"
-    }
+    "lint": "oxlint"
   },
   "browserslist": [
     ">0.2%",
@@ -46,6 +31,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@vitejs/plugin-react": "^5.1.2",
     "gh-pages": "^6.3.0",
+    "oxlint": "^1.32.0",
     "vite": "^7.2.7"
   }
 }

@@ -19,7 +19,7 @@ class TableFooter extends Component {
     this.props.onChange({ points: data.value });
   };
 
-  handlePointSubmit = (_, data) => {
+  handlePointSubmit = () => {
     const { points, checkboxes } = this.props.newGame;
     let nullGame = points === "0";
     let winnerList = [];
